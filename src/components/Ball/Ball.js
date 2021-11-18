@@ -18,7 +18,7 @@ const Ball = props => {
       onClick={(event) => setActive(!active)}
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}>
-      <sphereGeometry args={[2, 32, 16]} />
+      <boxGeometry args={[2, 2, 2]} />
       <meshStandardMaterial color={hovered ? 'purple' : 'grey'} />
     </mesh>
   )
