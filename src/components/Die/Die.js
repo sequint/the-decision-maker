@@ -31,13 +31,13 @@ const Die = props => {
     console.log(mesh.current.rotation)
     setHold(false)
     setRelease(true)
-    mesh.current.rotation.x = 200
-    mesh.current.rotation.y = 150
-    mesh.current.rotation.z = 100
-    setRotation(0.1)
+    mesh.current.rotation.x = Math.random() * 360
+    mesh.current.rotation.y = Math.random() * 360
+    mesh.current.rotation.z = 180
+    setRotation(0.2)
     // Set release back to false after .3 seconds to return box to normal size
     setTimeout(() => {
-      setRotation(0.008)
+      setRotation(0)
       mesh.current.rotation.x = 0
       mesh.current.rotation.y = 0
       mesh.current.rotation.z = 0
