@@ -13,6 +13,7 @@ const Die = props => {
 
   // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => (mesh.current.rotation.y += rotation))
+  // console.log(mesh.current.rotation)
 
   // Control Die size dependant on click events
   const changeSize = () => {
@@ -28,12 +29,12 @@ const Die = props => {
   }
 
   const handlePointerUp = event => {
-    console.log(mesh.current.rotation)
+    console.log(mesh)
     setHold(false)
     setRelease(true)
-    mesh.current.rotation.x = Math.random() * 360
-    mesh.current.rotation.y = Math.random() * 360
-    mesh.current.rotation.z = 180
+    mesh.current.rotation.x += .19
+    mesh.current.rotation.y += .56
+    mesh.current.rotation.z += .9
     setRotation(0.2)
     // Set release back to false after .3 seconds to return box to normal size
     setTimeout(() => {
