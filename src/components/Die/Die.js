@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 
-const Ball = props => {
+const Die = props => {
   // This reference will give us direct access to the mesh
   const mesh = useRef()
   // Set up state for the hovered and active state
@@ -24,4 +24,4 @@ const Ball = props => {
   )
 }
 
-export default Ball
+export default Die

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Canvas } from '@react-three/fiber'
-import Ball from '../Ball'
+import Die from '../Die'
 import './App.css'
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       <Canvas id="canvas">
         <ambientLight />
         <pointLight position={[0, 0, 10]} />
-        <Ball position={[0, 0, 0]} />
+        <Die position={[0, 0, 0]} />
       </Canvas>
     </>
   )
