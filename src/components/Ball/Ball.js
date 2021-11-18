@@ -8,7 +8,7 @@ const Ball = props => {
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
   // Rotate mesh every frame, this is outside of React without overhead
-  useFrame(() => (mesh.current.rotation.y += 0.01))
+  useFrame(() => (mesh.current.rotation.y += 0.008))
 
   return(
     <mesh
