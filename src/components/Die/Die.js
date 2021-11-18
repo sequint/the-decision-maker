@@ -10,6 +10,10 @@ const Die = props => {
   const [release, setRelease] = useState(false)
   // Set state for rotation speed
   const [ rotation, setRotation ] = useState(0.008)
+
+  // Set state for angle of rotation axis
+  const [ angle, setAngle ] = useState('y')
+
   // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => (mesh.current.rotation.y += rotation))
 
@@ -27,14 +31,15 @@ const Die = props => {
   }
 
   const handlePointerUp = event => {
+    console.log(mesh.current.rotation)
     setHold(false)
     setRelease(true)
-    setRotation(0.08)
+    setRotation(0.2)
     // Set release back to false after .3 seconds to return box to normal size
     setTimeout(() => {
       setRotation(0.008)
       setRelease(false)
-    }, 200)
+    }, 800)
   }
 
   return(
