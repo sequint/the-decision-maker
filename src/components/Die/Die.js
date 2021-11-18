@@ -4,12 +4,14 @@ import { useFrame } from '@react-three/fiber'
 const Die = props => {
   // This reference will give us direct access to the mesh
   const mesh = useRef()
-  // Set up state for the hovered and active state
+  // Set up state for the hovered and pop states
   const [hovered, setHover] = useState(false)
   const [hold, setHold] = useState(false)
   const [release, setRelease] = useState(false)
+  // Set state for rotation speed
+  const [ rotation, setRotation ] = useState(0.008)
   // Rotate mesh every frame, this is outside of React without overhead
-  useFrame(() => (mesh.current.rotation.y += 0.008))
+  useFrame(() => (mesh.current.rotation.y += rotation))
 
   // Control Die size dependant on click events
   const changeSize = () => {
@@ -17,7 +19,7 @@ const Die = props => {
       return .5
     }
     else if (release) {
-      return 1.5
+      return 1.8
     }
     else {
       return 1
@@ -27,8 +29,10 @@ const Die = props => {
   const handlePointerUp = event => {
     setHold(false)
     setRelease(true)
+    setRotation(0.08)
     // Set release back to false after .3 seconds to return box to normal size
     setTimeout(() => {
+      setRotation(0.008)
       setRelease(false)
     }, 200)
   }
